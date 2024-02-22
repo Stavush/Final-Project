@@ -7,11 +7,16 @@ public class Board : MonoBehaviour
     [SerializeField] private int columns;
     [SerializeField] private int rows;
     [SerializeField] private GameObject tilePrefab;
+    [SerializeField] private GameObject allTiles;
+    [SerializeField] private GameObject[] squares;
+    [SerializeField] private GameObject[,] allSquares;
+
     private Tile[,] tiles;
 
     void Start()
     {
         tiles = new Tile[columns, rows];
+        allSquares = new GameObject[columns, rows];
         Launch();
     }
 
@@ -26,6 +31,11 @@ public class Board : MonoBehaviour
                 GameObject tile = Instantiate(tilePrefab, tempPosition, Quaternion.identity) as GameObject;
                 tile.transform.parent = this.transform;
                 tile.name = "(" + col+", "+ row+ ")";
+                int squareToUse = Random.Range(0, squares.Length);
+                GameObject square = Instantiate(squares[squareToUse], tempPosition, Quaternion.identity);
+                square.transform.parent = this.transform;
+                square.name = "(" + col + ", " + row + ")";
+                allSquares[col, row] = square;
             }
         }
     }

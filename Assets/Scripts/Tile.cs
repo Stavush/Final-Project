@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    //public GameObject[] dots;
+    
 
     
     void Start()
     {
-        //Initialize();
+        Initialize();
     }
 
 
@@ -20,9 +20,6 @@ public class Tile : MonoBehaviour
 
     void Initialize()
     {
-        /*int dotToUse = Random.Range(0, dots.Length);
-        GameObject = Instantiate(dots[dotToUse], transform.position, Quaternion.identity);
-        dots.transform.parent = this.transform;
-        */
+        
     }
 }
